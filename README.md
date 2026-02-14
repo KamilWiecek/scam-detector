@@ -19,6 +19,14 @@ When building this solution, I also have some personal goals:
 
 ### To Do
 - manually validate trading signal extraction with GenAI
+- document what is signal and how it will be validated
+- deploy required infrastrcuture: models and db
+- capture messages from telegram to db
+- extract signals from messages and store them in db
+- backtest signals and store results in db
+- add dashboard with results
+- automate solution
+- automate solution deployment
 
 ### Done
 - initialize repository with high-level concept description
