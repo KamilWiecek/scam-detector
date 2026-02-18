@@ -15,6 +15,31 @@ When building this solution, I also have some personal goals:
 - enjoy building something cool
 - learn GenAI and play with it in practice
 
+## What is trading signal?
+
+Since in this project we will analyze how effective the signals are, it is worth saying a few words about what a signal is.
+
+In short, a signal includes its exact date and a set of the following details: 
+* what to buy and at what price
+* at what price to take profit (usually more than one level)
+* at what price to limit the loss
+* the position direction (long/short).
+
+![](img/signal-example.png)
+
+Now let’s assume someone gives you advice and at 16:00 saying: _buy SOL/USDT below 82.2 and take profit (sell) as soon as it goes above 82.5, and if the price drops below 82 then sell and accept the loss_.
+
+On the candlestick chart above from the exchange, we marked the following data:
+1. the date and time of the signal — the signal timing will be key for its evaluation in backtesting
+1. the price at which we should buy: 82.2 (entry price)
+1. the price level where we exit the position and accept a loss (stop loss)
+1. the price we are happy with and want to sell at (take profit)
+1. the exact date and time when we end the trade
+
+The signal could also be limited in time, which is not shown in the image above.
+
+**Signal validation will simply be checking, using historical exchange data, whether a trade recommendation for a specific instrument—with the given entry, take profit, and stop loss prices—ended in profit or loss.**
+
 ## Phase 1 - Prompt engineering - testing in playground
 
 The first step was to check whether an LLM could extract the signals. For this, I used the playground available in Azure AI Foundry. Here is exactly what I did:
@@ -155,7 +180,6 @@ Your task is to return an object in JSON format, in accordance with the rules be
 ## Backlog 
 
 ### To Do
-- document what is signal and how it will be validated
 - deploy required infrastrcuture: models and db
 - capture messages from telegram to db
 - extract signals from messages and store them in db
@@ -165,5 +189,6 @@ Your task is to return an object in JSON format, in accordance with the rules be
 - automate solution deployment
 
 ### Done
+- document what is signal and how it will be validated
 - manually validate trading signal extraction with GenAI
 - initialize repository with high-level concept description
