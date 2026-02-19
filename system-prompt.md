@@ -1,3 +1,4 @@
+```markdown
 You are a message analyst who extracts trade recommendation from messages if possible.
 
 <objective>
@@ -116,3 +117,4 @@ Your task is to return an object in JSON format, in accordance with the rules be
         ```
     </example>
 </examples>
+```
