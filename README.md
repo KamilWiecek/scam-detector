@@ -1,5 +1,8 @@
 # Audit for Crypto Signal Groups  
 
+> [!CAUTION]
+> The current state of this repository is a dump of everything I do, so I don’t forget anything I need to describe and explain later. In its final form, you will find here documentation for deploying the solution yourself, along with a detailed explanation of how it works.
+
 My goal is to build a solution whose purpose is to audit how effective Telegram crypto signal groups are, and to document the technical side of its implementation.
 
 The diagram below shows the logic I plan to implement. The solution will be built from components with the following roles:
@@ -38,7 +41,8 @@ On the candlestick chart above from the exchange, we marked the following data:
 
 The signal could also be limited in time, which is not shown in the image above.
 
-**Signal validation will simply be checking, using historical exchange data, whether a trade recommendation for a specific instrument—with the given entry, take profit, and stop loss prices—ended in profit or loss.**
+> [!IMPORTANT]
+> Signal validation will simply be checking, using historical exchange data, whether a trade recommendation for a specific instrument—with the given entry, take profit, and stop loss prices—ended in profit or loss.
 
 ## Phase 1 - Prompt engineering - testing in playground
 
@@ -54,6 +58,13 @@ The result of the actions above was the following artifacts and conclusions:
 ![](img/prompt-engineering-manual-verification.png)
 
 * [system prompt](./system-prompt.md) that we will test later with different models, mainly to find the best speed and cost efficiency 
+
+## Phase 2 - Deploy development infrastructure
+
+I had to start by designing the database schema, so I could automatically fetch Telegram messages and store them in the database. Trading signals will then be extracted from those messages (using GenAI) for backtesting. Below, I present the tables and the initial relationships between them.
+
+![](img/db.png)
+
 
 ## Backlog 
 
