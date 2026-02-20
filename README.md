@@ -65,6 +65,9 @@ I had to start by designing the database schema, so I could automatically fetch 
 
 ![](img/db.png)
 
+In this project, the main focus is to play with GenAI, so for now, I deployed the infrastructure manually with just a few clicks, and thanks to the beauty of the cloud, Azure SQL Database and AI Foundry are ready for my local development. 
+
+This solution doesn’t require private networking and entra id auth for database services, so we will use local auth. I capture SQL server server, database, username and password to `.env` file. It will be later used by our Python program to insert messages to database.
 
 ## Backlog 
 
